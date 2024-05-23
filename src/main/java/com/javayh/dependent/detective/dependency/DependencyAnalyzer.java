@@ -28,19 +28,20 @@ public abstract class DependencyAnalyzer {
      * 获取项目的依赖
      *
      * @param pomPath pom文件的位置
+     * @param mvnEnv  maven 的位置
      * @return {@link DependencyCoordinates} 依赖坐标
      */
-    protected abstract List<DependencyCoordinates> dependencyTree(String pomPath);
+    protected abstract List<DependencyCoordinates> dependencyTree(String pomPath, String mvnEnv);
 
     /**
      * 进行依赖的分析
      *
      * @param projectPath 项目所在的路径
-     * @param pomPath     pom文件的位置
+     * @param mvnEnv      maven 的位置
      */
-    public ProjectCoordinates dependencyAnalyzer(String projectPath, String pomPath) {
+    public ProjectCoordinates dependencyAnalyzer(String projectPath, String mvnEnv) {
         ProjectCoordinates projectCoordinates = readerProject(projectPath);
-        List<DependencyCoordinates> dependencyCoordinates = dependencyTree(pomPath);
+        List<DependencyCoordinates> dependencyCoordinates = dependencyTree(projectPath, mvnEnv);
         projectCoordinates.setDependencyCoordinates(dependencyCoordinates);
         return projectCoordinates;
     }
