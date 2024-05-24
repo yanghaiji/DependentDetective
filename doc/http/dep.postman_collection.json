@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "5b011336-2893-44b6-9bd4-6e976ee7c107",
+		"name": "dep",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10384285"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/dep/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "projectPath",
+							"value": "C:\\source_code\\dependent",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/dep/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dep",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
