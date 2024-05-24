@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <a href="https://github.com/yanghaiji/DependentDetective.git">
-  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/DependentDetectiveLogo.png" 
+  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/dep.png" 
   alt="Standard - DependentDetectiveLogo" width="500"></a>
 </h1>
 <p align="center">
