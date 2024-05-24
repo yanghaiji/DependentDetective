@@ -38,12 +38,6 @@ public class MavenDependencyAnalyzer extends DependencyAnalyzer {
 
     Pattern pattern = Pattern.compile("([\\w.-]+:[\\w.-]+:jar:[\\w.-]+:[\\w.-]+)");
 
-    private static final Invoker INVOKER;
-
-    static {
-        INVOKER = new DefaultInvoker();
-    }
-
     /**
      * 获取项目名
      *
@@ -83,6 +77,7 @@ public class MavenDependencyAnalyzer extends DependencyAnalyzer {
         request.setPomFile(new File(pomPath));
         request.setGoals(Collections.singletonList("dependency:tree"));
         try {
+            Invoker INVOKER = new DefaultInvoker();
             INVOKER.setMavenHome(new File(mvnEnv));
             INVOKER.setOutputHandler(dependenciesList::add);
             INVOKER.execute(request);

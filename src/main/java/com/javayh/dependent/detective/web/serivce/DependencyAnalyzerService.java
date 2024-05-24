@@ -1,8 +1,8 @@
 package com.javayh.dependent.detective.web.serivce;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,7 +29,7 @@ import com.javayh.dependent.detective.dependency.bean.ProjectCoordinates;
 @Service
 public class DependencyAnalyzerService {
 
-    public static ExecutorService executor = new ThreadPoolExecutor(5, 10,
+    private static final ExecutorService EXECUTOR = new ThreadPoolExecutor(5, 10,
         0L, TimeUnit.MILLISECONDS,
         new LinkedBlockingQueue<>(), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
 
@@ -39,13 +39,19 @@ public class DependencyAnalyzerService {
     @Value("${mvnEnv}")
     private String mvnEnv;
 
-    public List<ProjectCoordinates> dependencyAnalyzer(String projectPath) throws IOException, InterruptedException {
-        List<ProjectCoordinates> projectCoordinates = new LinkedList<>();
+    public CopyOnWriteArrayList<ProjectCoordinates> dependencyAnalyzer(String projectPath)
+        throws IOException, InterruptedException {
+        // fix 线程安全问题
+        CopyOnWriteArrayList<ProjectCoordinates> projectCoordinates = new CopyOnWriteArrayList<>();
         List<String> finder = PomXmlFinder.finder(projectPath);
         CountDownLatch latch = new CountDownLatch(finder.size());
-        finder.forEach(file-> executor.execute(()->{
-            projectCoordinates.add((dependencyAnalyzer.dependencyAnalyzer(file, mvnEnv)));
-            latch.countDown();
+        finder.forEach(file -> EXECUTOR.execute(() -> {
+            try {
+                ProjectCoordinates coords = dependencyAnalyzer.dependencyAnalyzer(file, mvnEnv);
+                projectCoordinates.add(coords);
+            } finally {
+                latch.countDown();
+            }
         }));
         latch.await();
         return projectCoordinates;
