@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <a href="https://github.com/yanghaiji/DependentDetective.git">
-  <img src="https://github.com/yanghaiji/DependentDetective.git/blob/main/doc/img/DependentDetectiveLogo.png" 
+  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/DependentDetectiveLogo.png" 
   alt="Standard - DependentDetectiveLogo" width="500"></a>
 </h1>
 <p align="center">
@@ -29,14 +29,14 @@
 
 <h1 align="center">
   <a href="https://github.com/yanghaiji/DependentDetective.git">
-  <img src="https://github.com/yanghaiji/DependentDetective.git/blob/main/doc/img/postman.png" 
+  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/postman.png" 
   alt="Standard - DependentDetectiveLogo" width="500"></a>
 </h1>
 
 这里的projectPath指定根路径即可，程序会自动扫描出，根路径下所有的maven程序，进行依赖分析，扫描结束后会自动导出Excel
 <h1 align="center">
   <a href="https://github.com/yanghaiji/DependentDetective.git">
-  <img src="https://github.com/yanghaiji/DependentDetective.git/blob/main/doc/img/excel_tepmlate.png" 
+  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/excel_tepmlate.png" 
   alt="Standard - DependentDetectiveLogo" width="500"></a>
 </h1>
 
