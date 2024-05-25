@@ -30,3 +30,9 @@ target
 
 *.iml
 
+
+# node
+
+dependency-analyzer-frontend/node_modules
+
+
