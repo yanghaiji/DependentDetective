@@ -60,7 +60,7 @@
 
 <h1 align="center">
   <a href="https://github.com/yanghaiji/DependentDetective.git">
-  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/frontend_excel.png.png" 
+  <img src="https://github.com/yanghaiji/DependentDetective/blob/main/doc/img/frontend_excel.png" 
   alt="Standard - DependentDetectiveLogo" width="500"></a>
 </h1>
 
